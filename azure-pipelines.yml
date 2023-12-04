@@ -14,6 +14,11 @@ steps:
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'AROSC'
+    cmd: 'oc project demo-project'
+- task: oc-cmd@3
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'AROSC'
     cmd: 'oc start-build aspnet-sample --follow'
 - task: oc-cmd@3
   inputs:
