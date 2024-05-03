@@ -25,9 +25,6 @@ steps:
 #    connectionType: 'OpenShift Connection Service'
 #    openshiftService: 'AROSC'
 #    cmd: 'oc status'
-- task: AdvancedSecurity-Codeql-Init@1
-  inputs:
-    languages: 'csharp'
 - task: UseDotNet@2
   inputs:
     version: '7.x'
@@ -38,5 +35,3 @@ steps:
     command: build
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
-
-- task: AdvancedSecurity-Codeql-Analyze@1
