@@ -10,29 +10,29 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: oc-cmd@3
-  inputs:
-    connectionType: 'OpenShift Connection Service'
-    openshiftService: 'AROSC'
-    cmd: 'oc project demo-project'
-- task: oc-cmd@3
-  inputs:
-    connectionType: 'OpenShift Connection Service'
-    openshiftService: 'AROSC'
-    cmd: 'oc start-build aspnet-sample --follow'
-- task: oc-cmd@3
-  inputs:
-    connectionType: 'OpenShift Connection Service'
-    openshiftService: 'AROSC'
-    cmd: 'oc status'
+#- task: oc-cmd@3
+#  inputs:
+#    connectionType: 'OpenShift Connection Service'
+#    openshiftService: 'AROSC'
+#    cmd: 'oc project demo-project'
+#- task: oc-cmd@3
+#  inputs:
+#    connectionType: 'OpenShift Connection Service'
+#    openshiftService: 'AROSC'
+#    cmd: 'oc start-build aspnet-sample --follow'
+#- task: oc-cmd@3
+#  inputs:
+#    connectionType: 'OpenShift Connection Service'
+#    openshiftService: 'AROSC'
+#    cmd: 'oc status'
 
-#- task: UseDotNet@2
-#  inputs:
-#    version: '7.x'
-#    includePreviewVersions: true # Required for preview versions
-#- task: DotNetCoreCLI@2
-#  displayName: Build
-#  inputs:
-#    command: build
-#    projects: '**/*.csproj'
-#    arguments: '--configuration $(buildConfiguration)' # Update this to match your need
+- task: UseDotNet@2
+  inputs:
+    version: '7.x'
+    includePreviewVersions: true # Required for preview versions
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: build
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)' # Update this to match your need
